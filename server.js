@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express()
 
-app.get('/greetings/Quan', (req, res) => {
-    const username = req.params.username;
-    res.send(`Hello there, ${username}!`)
+app.get('/greetings/:name', (req, res) => {
+    const name = req.params.name;
+    res.send(`Hello there, ${name}!`);
 });
 
 // Listen for requests on port 3000
