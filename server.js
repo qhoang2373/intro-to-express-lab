@@ -30,6 +30,10 @@ app.get('/roll/:number', (req, res) => {
 });
 
 
+// Exercise 3: I Want THAT One!
+// Task: Create a route for URLs like /collectibles/<index-parameter>
+// Examples: Mathes routes such as /collectibles/2 or /collectibles/0
+// Data Array:
 
 
 
