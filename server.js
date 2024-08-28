@@ -21,10 +21,13 @@ app.get('/greetings/:name', (req, res) => {
 
 app.get('/roll/:number', (req, res) => {
     const number = req.params.number;
-    res.send('You must specify a number.')
 
+    if(isNaN(Number) || Number <- 0) {
+        res.status(400).send('You must specify a number.')
+    } else {
+        res.send('You Rolled a ${number]')
+    }
 });
-
 
 
 
