@@ -7,6 +7,17 @@ const collectibles = [
     { name: 'vintage 1970s yogurt SOLD AS-IS', price: 0.99 }
   ];
 
+const shoes = [
+    { name: "Birkenstocks", price: 50, type: "sandal" },
+    { name: "Air Jordans", price: 500, type: "sneaker" },
+    { name: "Air Mahomeses", price: 501, type: "sneaker" },
+    { name: "Utility Boots", price: 20, type: "boot" },
+    { name: "Velcro Sandals", price: 15, type: "sandal" },
+    { name: "Jet Boots", price: 1000, type: "boot" },
+    { name: "Fifty-Inch Heels", price: 175, type: "heel" }
+];
+
+
 
 // Exercise 1: Be Polite, Greet the User
 // Task: Create a route that responds to URLs like /greetings/<username-parameter>.
@@ -41,7 +52,6 @@ app.get('/roll/:number', (req, res) => {
 // Exercise 3: I Want THAT One!
 // Task: Create a route for URLs like /collectibles/<index-parameter>
 // Examples: Mathes routes such as /collectibles/2 or /collectibles/0
-// Data Array:
 
 
 app.get('/collectibles/:index', (req, res) => {
@@ -55,7 +65,8 @@ app.get('/collectibles/:index', (req, res) => {
     }
 });
 
-
+// Exercise 4: Filter Shoes by Query Parameters
+// 
 
 
 
