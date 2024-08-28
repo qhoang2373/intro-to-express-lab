@@ -1,6 +1,13 @@
 const express = require('express')
 const app = express()
 
+const collectibles = [
+    { name: 'shiny ball', price: 5.95 },
+    { name: 'autographed picture of a dog', price: 10 },
+    { name: 'vintage 1970s yogurt SOLD AS-IS', price: 0.99 }
+  ];
+
+
 // Exercise 1: Be Polite, Greet the User
 // Task: Create a route that responds to URLs like /greetings/<username-parameter>.
 // Examples: Matches routes like /greetings/Christy or /greetings/Mathilda.
@@ -22,10 +29,11 @@ app.get('/greetings/:name', (req, res) => {
 app.get('/roll/:number', (req, res) => {
     const number = req.params.number;
 
-    if(isNaN(Number) || Number <- 0) {
-        res.status(400).send('You must specify a number.')
+    if (isNaN(number)) {
+        res.send('You must specify a number.')
     } else {
-        res.send('You Rolled a ${number]')
+        const randomNumber = Math.floor(Math.random() * (number + 1));
+        res.send(`You rolled a ${randomNumber}.`)
     }
 });
 
@@ -36,13 +44,10 @@ app.get('/roll/:number', (req, res) => {
 // Data Array:
 
 
-const collectibles = [
-    { name: 'shiny ball', price: 5.95 },
-    { name: 'autographed picture of a dog', price: 10 },
-    { name: 'vintage 1970s yogurt SOLD AS-IS', price: 0.99 }
-  ];
+app.get('/collectibles/:index', (req, res) => {
+    const index = req.params.index;
 
-
+});
 
 
 
