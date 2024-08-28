@@ -22,3 +22,9 @@ app.listen(3000, () => {
 // Examples: Matches routes like /roll/6 or /roll/20.
 // Validation: If the parameter is not a number, respond with “You must specify a number.” For instance, /roll/potato should trigger this response.
 // Functionality: If a valid number is provided, respond with a random whole number between 0 and the given number. For example, a request to /roll/16 might respond with “You rolled a 14.”
+
+app.get('/roll/:number', (req, res) => {
+    const number = req.params.number;
+    res.send()
+
+});
