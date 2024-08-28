@@ -12,10 +12,6 @@ app.get('/greetings/:name', (req, res) => {
     res.send(`Hello there, ${name}!`);
 });
 
-// Listen for requests on port 3000
-app.listen(3000, () => {
-    console.log('Listening on port 3000')
-});
 
 // Exercise 2: Rolling the Dice
 // Task: Set up a route to handle URLs following the pattern /roll/<number-parameter>.
@@ -25,6 +21,43 @@ app.listen(3000, () => {
 
 app.get('/roll/:number', (req, res) => {
     const number = req.params.number;
-    res.send()
+    res.send('You must specify a number.')
 
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.listen(3000, () => {
+    console.log('Listening on port 3000')
 });
