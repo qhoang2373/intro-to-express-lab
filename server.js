@@ -46,7 +46,13 @@ app.get('/roll/:number', (req, res) => {
 
 app.get('/collectibles/:index', (req, res) => {
     const index = req.params.index;
-    res.send('This item is not yet in stock. Check back soon!')
+
+    if (isNaN(index)) {
+        res.send('This item is not yet in stock. Check back soon!')
+    } else {
+        const collectible = collectibles[index];
+        res.send(`So, you want the ${collectible.name}? For ${collectible.price}, it can be yours!`);
+    }
 });
 
 
