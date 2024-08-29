@@ -66,29 +66,43 @@ app.get('/collectibles/:index', (req, res) => {
 });
 
 // Exercise 4: Filter Shoes by Query Parameters
-// 
+// Task: Create a route /shoes that filters the list of shoes based on query parameters.
+
+// Query Parameters:
+
+// min-price: Excludes shoes below this price.
+// max-price: Excludes shoes above this price.
+// type: Shows only shoes of the specified type.
+// No parameters: Responds with the full list of shoes.
 
 
+app.get('/shoes', (req, res) => {
+  const minPrice = (req.query.min_price)
+  const maxPrice = (req.query.max_price)
+  const type = (req.query.type)
 
+  const filteredShoes = shoes.filter(shoe => {
+      let keep = true
+      if(minPrice && shoe.price < minPrice) {
+          keep = false
+      }
+      if(maxPrice && shoe.price > maxPrice) {
+          keep = false
+      }
+      if(type && shoe.type !== type) {
+          keep = false
+      }
+      return keep
+  })
 
+  res.json(filteredShoes)
+})
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Answers
+// localhost:3000/shoes will show all shoes if there is no parameter
+// localhost:3000/shoes?min-price=50 will exclude shoes below this price
+// localhost:3000/shoes?max-price=500 will exclude shoes above this price
+// localhost:3000/shoes?min-price=15&max-price=1000&type=sneaker 
 
 
 
