@@ -18,11 +18,8 @@ const shoes = [
 ];
 
 
-
 // Exercise 1: Be Polite, Greet the User
 // Task: Create a route that responds to URLs like /greetings/<username-parameter>.
-// Examples: Matches routes like /greetings/Christy or /greetings/Mathilda.
-// Response: Include the username from the URL in the response, such as “Hello there, Christy!” or “What a delight it is to see you once more, Mathilda.”
 
 app.get('/greetings/:name', (req, res) => {
     const name = req.params.name;
@@ -48,8 +45,6 @@ app.get('/roll/:number',(req, res) => {
 
 // Exercise 3: I Want THAT One!
 // Task: Create a route for URLs like /collectibles/<index-parameter>
-// Examples: Mathes routes such as /collectibles/2 or /collectibles/0
-
 
 app.get('/collectibles/:index', (req, res) => {
     const index = req.params.index;
@@ -64,14 +59,6 @@ app.get('/collectibles/:index', (req, res) => {
 
 // Exercise 4: Filter Shoes by Query Parameters
 // Task: Create a route /shoes that filters the list of shoes based on query parameters.
-
-// Query Parameters:
-
-// min-price: Excludes shoes below this price.
-// max-price: Excludes shoes above this price.
-// type: Shows only shoes of the specified type.
-// No parameters: Responds with the full list of shoes.
-
 
 app.get('/shoes', (req, res) => {
   const minPrice = (req.query.min_price)
@@ -94,13 +81,6 @@ app.get('/shoes', (req, res) => {
 
   res.json(filteredShoes)
 })
-
-// Answers
-// localhost:3000/shoes will show all shoes if there is no parameter
-// localhost:3000/shoes?min-price=50 will exclude shoes below this price
-// localhost:3000/shoes?max-price=500 will exclude shoes above this price
-// localhost:3000/shoes?min-price=15&max-price=1000&type=sneaker 
-
 
 app.listen(3000, () => {
     console.log('Listening on port 3000')
