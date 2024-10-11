@@ -24,12 +24,10 @@ const shoes = [
 // Examples: Matches routes like /greetings/Christy or /greetings/Mathilda.
 // Response: Include the username from the URL in the response, such as “Hello there, Christy!” or “What a delight it is to see you once more, Mathilda.”
 
-
 app.get('/greetings/:name', (req, res) => {
     const name = req.params.name;
     res.send(`Hello there, ${name}!`);
 });
-
 
 // Exercise 2: Rolling the Dice
 // Task: Set up a route to handle URLs following the pattern /roll/<number-parameter>.
@@ -37,17 +35,16 @@ app.get('/greetings/:name', (req, res) => {
 // Validation: If the parameter is not a number, respond with “You must specify a number.” For instance, /roll/potato should trigger this response.
 // Functionality: If a valid number is provided, respond with a random whole number between 0 and the given number. For example, a request to /roll/16 might respond with “You rolled a 14.”
 
-app.get('/roll/:number', (req, res) => {
-    const number = req.params.number;
+app.get('/roll/:number',(req, res) => {
+    const num = Number(req.params.number);
 
-    if (isNaN(number)) {
-        res.send('You must specify a number.')
+    if (isNaN(num)) {
+        res.send('You must specify number.');
     } else {
-        const Number = Math.floor(Math.random() * (number + 1));
-        res.send(`You rolled a ${Number}.`)
+        const randomNumber = Math.floor(Math.random() * (num + 1));
+        res.send(`You rolled a ${randomNumber}`);
     }
 });
-
 
 // Exercise 3: I Want THAT One!
 // Task: Create a route for URLs like /collectibles/<index-parameter>
@@ -103,8 +100,6 @@ app.get('/shoes', (req, res) => {
 // localhost:3000/shoes?min-price=50 will exclude shoes below this price
 // localhost:3000/shoes?max-price=500 will exclude shoes above this price
 // localhost:3000/shoes?min-price=15&max-price=1000&type=sneaker 
-
-
 
 
 app.listen(3000, () => {
